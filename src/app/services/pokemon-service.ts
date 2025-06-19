@@ -12,9 +12,4 @@ export class PokemonService {
   private apiUrl: string = 'https://pokeapi.co/api/v2/'
 
   constructor(private http: HttpClient) { }
-
-  getPokemones(): Observable<Paginate<PokemonList>> {
-    const url = this.apiUrl+'pokemon';
-    return this.http.get<Paginate<PokemonList>>(url)
-  }
 }

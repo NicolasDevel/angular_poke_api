@@ -24,16 +24,7 @@ export class Home {
   }
 
   fetchPokemones():void {
-    this.servicio.getPokemones().subscribe({
-      next: (loQueRespondeElServidor) => {
-        this.paginate = loQueRespondeElServidor
-        this.pokemons = this.paginate.results
-        this.loading = false
-      },
-      error: (err) => {
-        console.log('Error: ', err)
-      }
-    });
+    
   }
 
   seePokemon(name: string) {
