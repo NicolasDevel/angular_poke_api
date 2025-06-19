@@ -8,7 +8,7 @@ export const routes: Routes = [
         component: Home
     },
     {
-        path: 'detail',
+        path: 'detail/:name',
         component: DetailPokemon
     }
 ];

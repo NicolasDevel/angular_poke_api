@@ -1,1 +1,29 @@
-<p>home works!</p>
+<div class="min-h-scree p-6">
+  <div class="max-w-7xl mx-auto">
+    <h1 class="text-4xl font-bold text-accent mb-8">Pokédex</h1>
+
+    <!-- Spining mientras cargan los pokemones -->
+    <div *ngIf="!loading && pokemons && pokemons.length === 0" class="flex justify-center items-center h-64">
+      <div
+        class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accent"
+      ></div>
+    </div>
+
+    <!-- tabla de pokemones -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+    >
+      <div *ngFor="let pokemon of pokemons" class="flex">
+        <p class="text-black flex-grow">{{pokemon.name}}</p>
+        <button 
+          class="text-white py-2 px-4 bg-accent hover:bg-accent-hover font-bold rounded shadow transition duration-300 ease-in-out transform hover:scale-125" 
+          (click)="seePokemon(pokemon.name)"
+        >
+            Ver
+        </button>
+      </div>
+    </div>
+
+    
+  </div>
+</div>
