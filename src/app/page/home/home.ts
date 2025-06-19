@@ -3,7 +3,6 @@ import { PokemonService } from '../../services/pokemon-service';
 import { PokemonList } from '../../interfaces/pokemon';
 import { CommonModule } from '@angular/common';
 import { Paginate } from '../../interfaces/utils';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +17,7 @@ export class Home {
   pokemons: PokemonList[] | null = null;
   loading = true;
 
-  constructor(private servicio: PokemonService, private router: Router) {}
+  constructor(private servicio: PokemonService) {}
 
   ngOnInit(): void {
     this.fetchPokemones()
@@ -38,6 +37,6 @@ export class Home {
   }
 
   seePokemon(name: string) {
-    this.router.navigate(['/detail', name])
+    
   }
 }

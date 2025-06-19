@@ -17,8 +17,4 @@ export class PokemonService {
     const url = this.apiUrl+'pokemon';
     return this.http.get<Paginate<PokemonList>>(url)
   }
-
-  getPokemonFromName(name: string): Observable<Pokemon> {
-    return this.http.get<Pokemon>(`${this.apiUrl}pokemon/${name}`)
-  }
 }
