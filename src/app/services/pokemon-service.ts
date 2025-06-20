@@ -8,8 +8,17 @@ import { Paginate } from '../interfaces/utils';
   providedIn: 'root'
 })
 export class PokemonService {
-
   private apiUrl: string = 'https://pokeapi.co/api/v2/'
 
   constructor(private http: HttpClient) { }
+
+  getAllPokemons(): Observable<Paginate<PokemonList>> {
+    return this.http.get<Paginate<PokemonList>>(`${this.apiUrl}pokemon`)
+  }
+
+  getPokemonByName(name: string): Observable<Pokemon> {
+    const url = this.apiUrl + 'pokemon/' + name
+    const urlDos = `${this.apiUrl}pokemon/${name}`
+    return this.http.get<Pokemon>(url);
+  }
 }

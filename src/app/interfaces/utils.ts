@@ -4,3 +4,5 @@ export interface Paginate<T> {
     previous: string | null;
     results:  T[];
 }
+
+

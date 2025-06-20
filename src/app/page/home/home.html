@@ -3,63 +3,25 @@
     <h1 class="text-4xl font-bold text-accent mb-8">Pokédex</h1>
 
     <!-- Spining mientras cargan los pokemones -->
-    <div class="flex justify-center items-center h-64">
+    <div *ngIf="loading" class="flex justify-center items-center h-64">
       <div
         class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accent"
       ></div>
     </div>
 
     <!-- tabla de pokemones -->
-    <div
+    <div *ngIf="!loading"
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
     >
-      <div class="flex">
-        <p class="text-black flex-grow">Nombre del pokemon</p>
-        <button 
-          class="text-white py-2 px-4 bg-accent hover:bg-accent-hover font-bold rounded shadow transition duration-300 ease-in-out transform hover:scale-125" 
-          (click)="seePokemon('Bulbasur')"
+      <div *ngFor="let item of pokemons" class="flex">
+        <p class="text-black flex-grow">{{item.name}}</p>
+        <button
+          class="text-white py-2 px-4 bg-accent hover:bg-accent-hover font-bold rounded shadow transition duration-300 ease-in-out transform hover:scale-125"
+          (click)="seePokemon(item.name)"
         >
-            Ver
-        </button>
-      </div>
-      <div class="flex">
-        <p class="text-black flex-grow">Nombre del pokemon</p>
-        <button 
-          class="text-white py-2 px-4 bg-accent hover:bg-accent-hover font-bold rounded shadow transition duration-300 ease-in-out transform hover:scale-125" 
-          (click)="seePokemon('Bulbasur')"
-        >
-            Ver
-        </button>
-      </div>
-      <div class="flex">
-        <p class="text-black flex-grow">Nombre del pokemon</p>
-        <button 
-          class="text-white py-2 px-4 bg-accent hover:bg-accent-hover font-bold rounded shadow transition duration-300 ease-in-out transform hover:scale-125" 
-          (click)="seePokemon('Bulbasur')"
-        >
-            Ver
-        </button>
-      </div>
-      <div class="flex">
-        <p class="text-black flex-grow">Nombre del pokemon</p>
-        <button 
-          class="text-white py-2 px-4 bg-accent hover:bg-accent-hover font-bold rounded shadow transition duration-300 ease-in-out transform hover:scale-125" 
-          (click)="seePokemon('Bulbasur')"
-        >
-            Ver
-        </button>
-      </div>
-      <div class="flex">
-        <p class="text-black flex-grow">Nombre del pokemon</p>
-        <button 
-          class="text-white py-2 px-4 bg-accent hover:bg-accent-hover font-bold rounded shadow transition duration-300 ease-in-out transform hover:scale-125" 
-          (click)="seePokemon('Bulbasur')"
-        >
-            Ver
+          Ver
         </button>
       </div>
     </div>
-
-    
   </div>
 </div>
